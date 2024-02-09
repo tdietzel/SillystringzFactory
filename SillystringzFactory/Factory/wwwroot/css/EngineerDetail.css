@@ -1,3 +1,11 @@
 .nav-links a {
   display: block;
 }
+.machine {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.machine h3 {
+  margin: 10px 1rem;
+}

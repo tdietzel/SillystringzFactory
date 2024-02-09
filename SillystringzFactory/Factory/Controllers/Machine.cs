@@ -17,9 +17,7 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      List <Machine> model = _db.Machines.ToList();
-
-      return View(model);
+      return View(_db.Machines.ToList());
     }
 
     public ActionResult Create()
@@ -47,9 +45,7 @@ namespace Factory.Controllers
 
     public ActionResult Edit(int machineId)
     {
-      Machine selectedMachine = _db.Machines.Find(machineId);
-
-      return View(selectedMachine);
+      return View(_db.Machines.Find(machineId));
     }
     [HttpPost]
     public ActionResult Edit(Machine machine)
@@ -72,10 +68,9 @@ namespace Factory.Controllers
 
     public ActionResult AddEngineer(int id)
     {
-      Machine selectedMachine = _db.Machines.Find(id);
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
 
-      return View(selectedMachine);
+      return View(_db.Machines.Find(id));
     }
     [HttpPost]
     public ActionResult AddEngineer(Machine machine, int engineerId)
@@ -99,6 +94,7 @@ namespace Factory.Controllers
       EngineerMachine joinEntry = _db.EngineerMachines.Find(joinId);
       _db.EngineerMachines.Remove(joinEntry);
       _db.SaveChanges();
+
       return RedirectToAction("Index");
     }
   }

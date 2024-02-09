@@ -18,7 +18,12 @@
       <ul>
         @foreach (EngineerMachine join in Model.JoinEntities)
         {
-          <li><h4>@join.Machine.Name</h4></li>
+          <li class="machine"><h3>@join.Machine.Name</h3>
+            <form action="/Engineer/DeleteMachine" method="post">
+              <input name="joinId" type="hidden" value="@join.EngineerMachineId" />
+              <button name="submit" type='submit' >Remove</button>
+            </form>
+          </li>
         }
       </ul>
     }
