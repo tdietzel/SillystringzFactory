@@ -22,6 +22,10 @@ namespace Factory.Controllers
       return View(model);
     }
 
+    public ActionResult Create()
+    {
+      return View();
+    }
     [HttpPost]
     public ActionResult Create(Machine machine)
     {
@@ -30,10 +34,7 @@ namespace Factory.Controllers
 
       return RedirectToAction("Index");
     }
-    public ActionResult Create()
-    {
-      return View();
-    }
+
     public ActionResult Detail(int id)
     {
       Machine selectedMachine = _db.Machines
@@ -44,6 +45,38 @@ namespace Factory.Controllers
       return View(selectedMachine);
     }
 
+    public ActionResult Edit(int machineId)
+    {
+      Machine selectedMachine = _db.Machines.Find(machineId);
+
+      return View(selectedMachine);
+    }
+    [HttpPost]
+    public ActionResult Edit(Machine machine)
+    {
+      _db.Machines.Update(machine);
+      _db.SaveChanges();
+
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult Delete(int machineId)
+    {
+      Machine selectedMachine = _db.Machines.Find(machineId);
+      _db.Machines.Remove(selectedMachine);
+      _db.SaveChanges();
+
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult AddEngineer(int id)
+    {
+      Machine selectedMachine = _db.Machines.Find(id);
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+
+      return View(selectedMachine);
+    }
     [HttpPost]
     public ActionResult AddEngineer(Machine machine, int engineerId)
     {
@@ -59,36 +92,13 @@ namespace Factory.Controllers
 
       return RedirectToAction("Detail", new { id = machine.MachineId });
     }
-    public ActionResult AddEngineer(int id)
-    {
-      Machine selectedMachine = _db.Machines.Find(id);
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
-
-      return View(selectedMachine);
-    }
 
     [HttpPost]
-    public ActionResult Edit(Machine machine)
+    public ActionResult DeleteEngineer(int joinId)
     {
-      _db.Machines.Update(machine);
+      EngineerMachine joinEntry = _db.EngineerMachines.Find(joinId);
+      _db.EngineerMachines.Remove(joinEntry);
       _db.SaveChanges();
-
-      return RedirectToAction("Index");
-    }
-    public ActionResult Edit(int machineId)
-    {
-      Machine selectedMachine = _db.Machines.Find(machineId);
-
-      return View(selectedMachine);
-    }
-
-    [HttpPost]
-    public ActionResult Delete(int machineId)
-    {
-      Machine selectedMachine = _db.Machines.Find(machineId);
-      _db.Machines.Remove(selectedMachine);
-      _db.SaveChanges();
-
       return RedirectToAction("Index");
     }
   }
