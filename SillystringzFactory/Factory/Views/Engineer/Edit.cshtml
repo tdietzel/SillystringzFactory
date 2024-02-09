@@ -1,0 +1,21 @@
+@model Factory.Models.Engineer
+
+<!DOCTYPE html>
+<html>
+  <head></head>
+
+  <body>
+    <h1>Edit @Model.Name's Profile</h1>
+    @using (Html.BeginForm())
+    {
+      @Html.HiddenFor(model => model.EngineerId)
+      @Html.LabelFor(model => model.Name)
+      @Html.EditorFor(model => model.Name)
+      @Html.LabelFor(model => model.Description)
+      @Html.EditorFor(model => model.Description)
+      <input name="submit" type="submit" value="Save" />
+    }
+
+    @Html.ActionLink("Go back to Engineers", "Index")
+  </body>
+</html>

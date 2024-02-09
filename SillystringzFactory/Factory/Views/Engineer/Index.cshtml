@@ -20,10 +20,12 @@
         <h3>Description: @engineer.Description</h3>
         @Html.ActionLink($"Current Machines {@engineer.Name} Works On", "Detail", new { id = engineer.EngineerId })
         <div class="engineer-btn">
-          <form action="/Engineer/Edit" method="post">
+          <form action="/Engineer/Edit" method="get">
+            <input name="EngineerId" type="hidden" value="@engineer.EngineerId" />
             <button name="submit" type='submit'>Edit</button>
           </form>
           <form action="/Engineer/Delete" method="post">
+            <input name="engineerId" type="hidden" value="@engineer.EngineerId" />
             <button name="submit" type='submit'>Delete</button>
           </form>
         </div>
