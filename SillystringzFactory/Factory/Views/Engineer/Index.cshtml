@@ -1,0 +1,30 @@
+@using Factory.Models
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="~/css/EngineerIndex.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+
+    @if (Model.Count == 0)
+    {
+      <p>There are no engineers! Please create one below</p>
+    }
+    else
+    {
+      foreach(Engineer engineer in Model)
+      {
+        <h1>Name: @engineer.Name</h1>
+        <h3>Description: @engineer.Description</h3>
+        <hr />
+      }
+    }
+
+    <div class="nav-links">
+      @Html.ActionLink("Add a Engineer", "Create")
+      @Html.ActionLink("Back to homepage", "Index", "Home")
+    </div>
+  </body>
+</html>
