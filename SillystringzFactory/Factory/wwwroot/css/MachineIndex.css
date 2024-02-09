@@ -1,3 +1,10 @@
 .nav-links a {
   display: block;
 }
+.machine-btn {
+  display: block;
+  margin-top: 1rem;
+}
+.machine-btn form {
+  display: inline-block;
+}

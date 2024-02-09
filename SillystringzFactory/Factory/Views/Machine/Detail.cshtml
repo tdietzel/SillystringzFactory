@@ -1,0 +1,30 @@
+@using Factory.Models
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="~/css/MachineDetail.css" rel="stylesheet" type="text/css" />
+  </head>
+  
+  <body>
+    <h1>@Model.Name's assigned Engineers:</h1>
+
+    @if (Model.JoinEntities.Count == 0)
+    {
+      <p>There are no current engineers assigned to this machine! Add one below.</p>
+    }
+    else
+    {
+      <ul>
+        @foreach(EngineerMachine join in Model.JoinEntities)
+        {
+          <li><h4>@join.Engineer.Name</h4></li>
+        }
+      </ul>
+    }
+    <div class="nav-links">
+      @Html.ActionLink("Add new engineer", "AddEngineer", new { id = Model.MachineId})
+      @Html.ActionLink("Go back to machines", "Index")
+    </div>
+  </body>
+</html>

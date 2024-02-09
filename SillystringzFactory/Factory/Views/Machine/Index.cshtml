@@ -16,6 +16,17 @@
       {
         <h1>Name: @machine.Name</h1>
         <h3>Description: @machine.Description</h3>
+        @Html.ActionLink("Engineers assigned to fix", "Detail", new { id = machine.MachineId })
+        <div class="machine-btn">
+          <form action="/Machine/Edit" method="get">
+            <input name="machineId" type="hidden" value="@machine.MachineId" />
+            <button name="submit" type='submit'>Edit</button>
+          </form>
+          <form action="/Machine/Delete" method="post">
+            <input name="machineId" type="hidden" value="@machine.MachineId" />
+            <button name="submit" type='submit'>Delete</button>
+          </form>
+        </div>
         <hr />
       }
     }
