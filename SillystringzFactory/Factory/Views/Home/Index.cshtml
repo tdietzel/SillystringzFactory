@@ -7,9 +7,13 @@
       rel="stylesheet" 
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
       crossorigin="anonymous">
+    <link href="~/css/HomeIndex.css" rel="stylesheet" type="text/css" />
     <meta charset='utf-8'>
   </head>
   <body>
-    @Html.ActionLink("Head to engineers", "Index", "Engineer")
+    <div class="nav-links">
+      @Html.ActionLink("Head to engineers", "Index", "Engineer")
+      @Html.ActionLink("Head to machines", "Index", "Machine")
+    </div>
   </body>
 </html>

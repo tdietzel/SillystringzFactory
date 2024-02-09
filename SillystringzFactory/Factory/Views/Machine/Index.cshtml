@@ -1,0 +1,28 @@
+@using Factory.Models
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="~/css/MachineIndex.css" rel="stylesheet" type='text/css' />
+  </head>
+
+  <body>
+    @if (Model.Count == 0)
+    {
+      <p>There are no current machines! Add one below.</p>
+    }
+    else
+    {
+      foreach(Machine machine in Model)
+      {
+        <h1>Name: @machine.Name</h1>
+        <h3>Description: @machine.Description</h3>
+        <hr />
+      }
+    }
+
+    <div class="nav-links">
+      @Html.ActionLink("Add a machine", "Create")
+      @Html.ActionLink("Back to homepage", "Index", "Home")
+    </div>
+  </body>
+</html>
