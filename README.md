@@ -81,6 +81,7 @@ This project uses a SQL database to store and manage data. Follow the instructio
      Replace `YourServerName`, `YourDatabaseName`, `YourUsername`, and `YourPassword` with your actual MySQL Server instance details.
 
 4. **Testing Connection**
+   - Run the command ``` dotnet ef database update ``` to update your database with the current migrations.
    - Build and run the project using ``` dotnet run ```.
    - Ensure that your application can connect to the database without any errors.
 
