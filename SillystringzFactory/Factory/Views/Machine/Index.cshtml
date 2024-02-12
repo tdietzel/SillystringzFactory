@@ -6,6 +6,7 @@
   </head>
 
   <body>
+    <h1>Current Machines</h1>
     @if (Model.Count == 0)
     {
       <p>There are no current machines! Add one below.</p>
@@ -14,6 +15,7 @@
     {
       foreach(Machine machine in Model)
       {
+        <hr />
         <h1>Name: @machine.Name</h1>
         <h3>Description: @machine.Description</h3>
         @Html.ActionLink("Engineers assigned to fix", "Detail", new { id = machine.MachineId })

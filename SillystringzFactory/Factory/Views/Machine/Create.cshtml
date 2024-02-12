@@ -3,10 +3,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+    <link href="~/css/MachineCreate.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
+    <h2>Add a Machine!</h2>
     @using (Html.BeginForm())
     {
       <p>@Html.LabelFor(model => model.Name): @Html.TextBoxFor(model => model.Name, new {@required = "required"})</p>

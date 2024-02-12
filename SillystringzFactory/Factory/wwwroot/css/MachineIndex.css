@@ -1,3 +1,6 @@
+body{
+  text-align: center;
+}
 .nav-links a {
   display: block;
 }

@@ -1,3 +1,11 @@
+.nav-links {
+  display: block;
+  text-align: center;
+}
 .nav-links a {
   display: block;
+}
+body {
+  text-align: center;
+  margin-top: 20%;
 }

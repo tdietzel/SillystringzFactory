@@ -2,18 +2,21 @@
 
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <link href="~/css/MachineEdit.css" rel="stylesheet" type="text/css" />
+  </head>
 
   <body>
     <h1>Edit @Model.Name's Machine</h1>
     @using (Html.BeginForm())
     {
       @Html.HiddenFor(model => model.MachineId)
-      @Html.LabelFor(model => model.Name)
+      <h3>Name</h3>
       @Html.EditorFor(model => model.Name)
-      @Html.LabelFor(model => model.Description)
+      <h3>Description</h3>
       @Html.EditorFor(model => model.Description)
-      <input name="submit" type="submit" value="Save" />
+      <br />
+      <input name="submit" type="submit" value="Save" id="submit" />
     }
 
     @Html.ActionLink("Go back to Machines", "Index")
