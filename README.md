@@ -32,7 +32,6 @@ The primary functionality of the application is to manage engineers and machines
 - **ORM**: Entity Framework Core 6.0
 - **Build Tool**: MSBuild
 - **Web Server**: ASP.NET Core
-- **Testing Framework**: MSTest
 
 ## Installation
 Follow these steps to set up the project locally:
